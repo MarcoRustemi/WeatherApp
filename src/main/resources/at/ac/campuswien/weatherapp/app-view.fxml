@@ -9,27 +9,34 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane styleClass="bodybg" stylesheets="@../../../../CssStyle/AppStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.control.Hyperlink?>
+<AnchorPane styleClass="bodybg" stylesheets="@../../../../CssStyle/AppStyle.css" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1">
 
-   <children>
-      <ImageView fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../Images/Hintergrund.jpg" />
-         </image>
-      </ImageView>
-      <TextField layoutX="526.0" layoutY="388.0" />
-      <Button layoutX="695.0" layoutY="388.0" mnemonicParsing="false" style="-fx-background-color: #d36d9b;" text="Search" textFill="WHITE" />
-      <Text layoutX="92.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text fill="#d36d9b" layoutX="371.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weather App" wrappingWidth="458.1875">
-         <font>
-            <Font size="72.0" />
-         </font>
-      </Text>
-      <Text fill="#e177a8" layoutX="457.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:" wrappingWidth="52.0">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
-      <VBox layoutY="446.0" prefHeight="352.0" prefWidth="1201.0" />
-   </children>
+   <ImageView fitHeight="1920" fitWidth="1920" pickOnBounds="true" preserveRatio="true">
+      <Image url="@../../../../Images/Hintergrund2.jpg"/>
+   </ImageView>
+   <TextField layoutX="809" layoutY="388.0" prefHeight="35" prefWidth="270"/>
+   <Button style="-fx-background-color: #eff542; -fx-cursor: hand; -fx-box-shadow: 5px 5px 5px gray; -fx-padding: 7px;"
+           styleClass="thick-box"
+           layoutX="1092" layoutY="389.5" mnemonicParsing="false" text="Search" textFill="BLACK"/>
+   <Text layoutX="92.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0"/>
+   <Text fill="#FFFFFF" layoutX="760" layoutY="300" strokeType="OUTSIDE" strokeWidth="0.0" text="Weather App"
+         style="-fx-font-weight:bold"
+         styleClass="custom-font" wrappingWidth="450" >
+      <effect>
+         <DropShadow color="#000000" radius="5.0" offsetX="3.0" offsetY="3.0" />
+      </effect>
+      <font>
+         <Font size="80.0"/>
+      </font>
+   </Text>
+   <Text fill="#FFFFFF" layoutX="750" layoutY="412" strokeType="OUTSIDE" strokeWidth="0.0" text="City:"
+         style="-fx-font-weight:bold" wrappingWidth="52.0">
+      <font>
+         <Font size="24.0"/>
+      </font>
+   </Text>
+   <VBox layoutY="700" prefHeight="400" prefWidth="100"/>
 </AnchorPane>

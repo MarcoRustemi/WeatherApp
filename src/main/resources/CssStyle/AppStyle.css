@@ -1,8 +1,26 @@
 .bodybg {
-    -fx-min-width: 1200;
-    -fx-min-height: 800;
+    -fx-min-width: 1920;
+    -fx-min-height: 1080;
     -fx-background-repeat: stretch;
-    -fx-background-size: 1200 800;
+    -fx-background-size: 1920 1080;
     -fx-background-position: center center;
     -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
     }
+
+.custom-font {
+    -fx-font-family: "ITALIC";
+    -fx-font-style: italic;
+    -fx-font-size: 60px;
+}
+.custom-bold {
+    font-weight: bold;
+}
+.thick-box {
+    border: solid 4px black;
+    background-color: yellow
+    height: 200
+    width: 100
+}
+.hover-box:hover {
+    cursor: pointer;
+}
