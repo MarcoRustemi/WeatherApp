@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class ApiConnector {
 
-    final String url = "http://api.weatherapi.com/v1/current.json";
+    final String url = "https://api.weatherapi.com/v1/current.json";
     final String key = "265aa588f98045e7933132318231001";
 
     public ApiConnector(){

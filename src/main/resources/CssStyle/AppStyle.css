@@ -1,26 +1,36 @@
-.bodybg {
-    -fx-min-width: 1920;
-    -fx-min-height: 1080;
+#body-bg {
     -fx-background-repeat: stretch;
-    -fx-background-size: 1920 1080;
     -fx-background-position: center center;
     -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
     }
 
-.custom-font {
+#searchbar{
+    -fx-translate-x: 526;
+    -fx-translate-y: 388;
+}
+
+#title-style{
     -fx-font-family: "ITALIC";
     -fx-font-style: italic;
     -fx-font-size: 60px;
+    -fx-translate-x: 430;
+    -fx-translate-y: 188;
+    -fx-fill: white;
+    -fx-font-weight: bold;
 }
 .custom-bold {
     font-weight: bold;
 }
-.thick-box {
-    border: solid 4px black;
-    background-color: yellow;
-    height: 200;
-    width: 100;
-}
 .hover-box:hover {
     cursor: pointer;
+}
+#button-style{
+    -fx-background-color: #eff542;
+    -fx-cursor: hand;
+    -fx-padding: 1px;
+    -fx-pref-height: 25;
+    -fx-pref-width: 75;
+    -fx-text-fill: black;
+    -fx-translate-x: 691;
+    -fx-translate-y: 388;
 }
