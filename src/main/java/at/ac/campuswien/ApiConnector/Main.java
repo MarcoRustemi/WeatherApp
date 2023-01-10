@@ -1,3 +1,5 @@
+package at.ac.campuswien.ApiConnector;
+
 import java.io.IOException;
 import java.util.HashMap;
 

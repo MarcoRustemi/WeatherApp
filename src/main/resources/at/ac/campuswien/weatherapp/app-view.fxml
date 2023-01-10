@@ -14,7 +14,7 @@
 <AnchorPane styleClass="bodybg" stylesheets="@../../../../CssStyle/AppStyle.css" xmlns="http://javafx.com/javafx/19"
             xmlns:fx="http://javafx.com/fxml/1">
 
-   <ImageView fitHeight="1920" fitWidth="1920" pickOnBounds="true" preserveRatio="true">
+   <ImageView fitHeight="1080" fitWidth="1920" pickOnBounds="true" preserveRatio="true">
       <Image url="@../../../../Images/Hintergrund2.jpg"/>
    </ImageView>
    <TextField layoutX="809" layoutY="388.0" prefHeight="35" prefWidth="270"/>

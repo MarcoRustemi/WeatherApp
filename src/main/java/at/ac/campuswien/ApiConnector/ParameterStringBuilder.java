@@ -1,3 +1,5 @@
+package at.ac.campuswien.ApiConnector;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;

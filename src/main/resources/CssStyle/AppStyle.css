@@ -17,9 +17,9 @@
 }
 .thick-box {
     border: solid 4px black;
-    background-color: yellow
-    height: 200
-    width: 100
+    background-color: yellow;
+    height: 200;
+    width: 100;
 }
 .hover-box:hover {
     cursor: pointer;
