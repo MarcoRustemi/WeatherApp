@@ -1,17 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-
 <?import javafx.scene.text.Text?>
-<AnchorPane id="body-bg" stylesheets="@../../../../CssStyle/AppStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
-    <ImageView id="backgroundImg">
+
+<AnchorPane id="body-bg" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../../../../CssStyle/AppStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.campuswien.weatherapp.WeatherController">
+    <ImageView id="backgroundImg" fitHeight="800.0" fitWidth="1200.0">
         <Image url="@../../../../Images/Hintergrund.jpg" />
     </ImageView>
-    <TextField id="searchbar" />
-    <Button id="button-style" text="Search" />
-    <Text id="title-style" text="Weather App"/>
+    <TextField id="searchbar" fx:id="txtField" />
+    <Button id="button-style" onAction="#onHelloButtonClick" text="Search" />
+    <Text id="title-style" text="Weather App" />
+    <Text id="city-text-style" text="City:" />
+    <Text layoutX="100.0" layoutY="515.0" text="Mo" AnchorPane.leftAnchor="100.0" />
+    <Text layoutX="266.0" layoutY="515.0" text="Di" />
+    <Text layoutX="432.0" layoutY="515.0" text="Mi" />
+    <Text layoutX="598.0" layoutY="515.0" text="Do" />
+    <Text layoutX="764.0" layoutY="515.0" text="Fr" />
+    <Text layoutX="930.0" layoutY="515.0" text="Sa" />
+    <Text layoutX="1021.0" layoutY="515.0" text="So" AnchorPane.rightAnchor="100.0" />
+    <ImageView fx:id="imgMo" fitHeight="64.0" fitWidth="64.0" layoutX="77.0" layoutY="521.0" />
+    <ImageView fx:id="imgDi" fitHeight="64.0" fitWidth="64.0" layoutX="240.0" layoutY="521.0" />
+    <ImageView fx:id="imgMi" fitHeight="64.0" fitWidth="64.0" layoutX="407.0" layoutY="521.0" />
+    <ImageView fx:id="imgDo" fitHeight="64.0" fitWidth="64.0" layoutX="574.0" layoutY="521.0" />
+    <ImageView fx:id="imgFr" fitHeight="64.0" fitWidth="64.0" layoutX="737.0" layoutY="521.0" />
+    <ImageView fx:id="imgSa" fitHeight="64.0" fitWidth="64.0" layoutX="904.0" layoutY="521.0" />
+    <ImageView fx:id="imgSo" fitHeight="64.0" fitWidth="64.0" layoutX="1061.0" layoutY="521.0" />
+    <Label fx:id="zustMo" layoutX="77.0" layoutY="601.0" prefHeight="17.0" prefWidth="64.0" styleClass="Label" text="ZustMo" />
+    <Label fx:id="zustDi" layoutX="240.0" layoutY="601.0" prefHeight="17.0" prefWidth="64.0" styleClass="Label" text="ZustDi" />
+    <Label fx:id="zustMi" layoutX="407.0" layoutY="601.0" prefHeight="17.0" prefWidth="64.0" styleClass="Label" text="ZustMi" />
+    <Label fx:id="zustDo" layoutX="574.0" layoutY="601.0" prefHeight="17.0" prefWidth="64.0" styleClass="Label" text="ZustDo" />
+    <Label fx:id="zustFr" layoutX="737.0" layoutY="601.0" prefHeight="17.0" prefWidth="64.0" styleClass="Label" text="ZustFr" />
+    <Label fx:id="zustSa" layoutX="904.0" layoutY="601.0" prefHeight="17.0" prefWidth="64.0" styleClass="Label" text="ZustSa" />
+    <Label fx:id="zustSo" layoutX="1061.0" layoutY="601.0" prefHeight="17.0" prefWidth="64.0" styleClass="Label" text="ZustSo" />
+    <Label fx:id="tempMo" layoutX="77.0" layoutY="670.0" prefHeight="48.0" prefWidth="64.0" styleClass="Label" text="TempMo" />
+    <Label fx:id="tempDi" layoutX="240.0" layoutY="670.0" prefHeight="48.0" prefWidth="64.0" styleClass="Label" text="TempDi" />
+    <Label fx:id="tempMi" layoutX="407.0" layoutY="670.0" prefHeight="48.0" prefWidth="64.0" styleClass="Label" text="TempMi" />
+    <Label fx:id="tempDo" layoutX="574.0" layoutY="670.0" prefHeight="48.0" prefWidth="64.0" styleClass="Label" text="TempDo" />
+    <Label fx:id="tempFr" layoutX="737.0" layoutY="670.0" prefHeight="48.0" prefWidth="64.0" styleClass="Label" text="TempFr" />
+    <Label fx:id="tempSa" layoutX="904.0" layoutY="670.0" prefHeight="48.0" prefWidth="64.0" styleClass="Label" text="TempSa" />
+    <Label fx:id="tempSo" layoutX="1061.0" layoutY="670.0" prefHeight="48.0" prefWidth="64.0" styleClass="Label" text="TempSo" />
 </AnchorPane>

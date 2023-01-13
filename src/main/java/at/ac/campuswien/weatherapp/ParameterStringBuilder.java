@@ -1,4 +1,4 @@
-package at.ac.campuswien.ApiConnector;
+package at.ac.campuswien.weatherapp;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;

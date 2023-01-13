@@ -7,66 +7,36 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+
 
 public class WeatherController {
-
     @FXML
-    private TextField stateField;
-
+    private Label zustMo, zustDi, zustMi, zustDo,zustFr,zustSa,zustSo; //fx:ids für Wetterzustaende(cloudy,rainy,sunny)Mo-So
     @FXML
-    private void searchWeather() {
-        String state = stateField.getText();
-        String apiKey = "644660f15c460cd498ab3932a80a5b9b";
-
-        String url = "https://api.weather.com/v3/wx/forecast/daily/5day?format=json&units=m&language=en-US&state=" + state + "&apiKey=" + apiKey;
-
-        try {
-            String jsonResponse = makeAPICall(url);
-            // Parse JSON response to retrieve weather information
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private String makeAPICall(String urlString) throws IOException {
-        URL url = new URL(urlString);
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setRequestMethod("GET");
-
-        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-        String inputLine;
-        StringBuilder content = new StringBuilder();
-        while ((inputLine = in.readLine()) != null) {
-            content.append(inputLine);
-        }
-        in.close();
-
-        return content.toString();
+    private Label tempMo, tempDi, tempMi,tempDo, tempFr,tempSa,tempSo; //fx:ids für temp Mo-So
+    @FXML
+    private ImageView imgMo,imgDi,imgMi,imgDo,imgFr,imgSa,imgSo;// fx:ids für icons Mo-So
+    @FXML
+    private TextField txtField;
+    @FXML
+    protected void onHelloButtonClick(){
+        zustMo.setText("Cloudy");
+        zustDi.setText("Cloudy");
+        zustMi.setText("Cloudy");
+        zustDo.setText("Cloudy");
+        zustFr.setText("Cloudy");
+        zustSa.setText("Cloudy");
+        zustSo.setText("Cloudy");
+        tempMo.setText("35°");
+        tempDi.setText("35°");
+        tempMi.setText("35°");
+        tempDo.setText("35°");
+        tempFr.setText("35°");
+        tempSa.setText("35°");
+        tempSo.setText("35°");
     }
 }
 
-
-
-
-/*import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
-
-import java.net.MalformedURLException;
-
-public class WeatherController {
-
-    @FXML
-    private TextField city;
-
-    @FXML
-    private Text weatherOutput;
-
-    private final String cityAPI = "https://api.openweathermap.org/data/2.5/forecast?id=524901&appid={d956a4bba747963b38b35352359883a0}";
-
-    @FXML
-    void getWeatherData(ActionEvent event) throws MalformedURLException {
-    }
-}*/

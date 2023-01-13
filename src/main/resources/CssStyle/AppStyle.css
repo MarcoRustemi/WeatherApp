@@ -2,7 +2,7 @@
     -fx-background-repeat: stretch;
     -fx-background-position: center center;
     -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
-    }
+}
 
 #searchbar{
     -fx-translate-x: 526;
@@ -33,4 +33,21 @@
     -fx-text-fill: black;
     -fx-translate-x: 691;
     -fx-translate-y: 388;
+}
+#city-text-style{
+    -fx-translate-x: 486;
+    -fx-translate-y: 405;
+    -fx-fill:white ;
+    -fx-font-weight: bold;
+}
+#test{
+    -fx-translate-x: 556;
+    -fx-translate-y: 512;
+    -fx-fill:white ;
+    -fx-font-weight: bold;
+}
+.Label{
+    -fx-text-fill:white ;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
 }
