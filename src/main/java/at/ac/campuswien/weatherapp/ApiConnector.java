@@ -6,15 +6,19 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.json.simple.*;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+
 public class ApiConnector {
 
-    final String url = "https://api.weatherapi.com/v1/current.json";
-    final String key = "265aa588f98045e7933132318231001";
+    final String url = "https://api.weatherapi.com/v1/forecast.json";
 
     public ApiConnector(){
     }
 
-    public boolean connect(HashMap<String, String> params) throws IOException {
+    public ApiResponse<Boolean, JSONArray> connect(HashMap<String, String> params) throws IOException {
 
         // Create a HttpURLConnection instance; NOTE: Connection is not established yet
         URL url = new URL(this.url);
@@ -31,39 +35,39 @@ public class ApiConnector {
         out.flush();
         out.close();
 
-        // Set request header
-        //con.setRequestProperty("Content-Type", "application/json");
-
-        //String contentType = con.getHeaderField("Content-Type");
-
         // con.setConnectTimeout(5000);
         // con.setReadTimeout(5000);
 
-
         int status = con.getResponseCode();
-
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(con.getInputStream()));
-        String inputLine;
-        StringBuffer content = new StringBuffer();
-        while ((inputLine = in.readLine()) != null) {
-            content.append(inputLine);
-        }
-        in.close();
-
-        con.disconnect();
 
         Reader streamReader = null;
 
         if (status > 299) {
             streamReader = new InputStreamReader(con.getErrorStream());
+            return new ApiResponse<>(Boolean.FALSE, null);
         } else {
-            streamReader = new InputStreamReader(con.getInputStream());
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(con.getInputStream()));
+            String o = in.readLine();
+            in.close();
+            JSONParser parser = new JSONParser();
+            JSONObject content;
+            JSONObject content2;
+            JSONArray content3;
+            try {
+                content = (JSONObject) parser.parse(o);
+                content2 = (JSONObject) content.get("forecast");
+                content3 = (JSONArray) content2.get("forecastday");
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
+
+            con.disconnect();
+            //System.out.println("Content: " + content3.get(2).toString());
+
+            return new ApiResponse<>(Boolean.TRUE, content3);
         }
 
-
-        System.out.println("Content: " + content.toString() + "\nStatus: " + streamReader.toString());
-        return true;
     }
 }
 

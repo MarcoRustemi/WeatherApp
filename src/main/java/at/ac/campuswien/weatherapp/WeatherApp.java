@@ -1,12 +1,12 @@
 package at.ac.campuswien.weatherapp;
 
-import java.io.IOException;
-import java.util.HashMap;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.util.HashMap;
 
 public class WeatherApp extends Application {
     @Override

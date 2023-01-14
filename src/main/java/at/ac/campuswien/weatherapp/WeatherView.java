@@ -1,18 +1,12 @@
 package at.ac.campuswien.weatherapp;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 
-public class WeatherController {
+public class WeatherView {
     @FXML
     private Label zustMo, zustDi, zustMi, zustDo,zustFr,zustSa,zustSo; //fx:ids für Wetterzustaende(cloudy,rainy,sunny)Mo-So
     @FXML
