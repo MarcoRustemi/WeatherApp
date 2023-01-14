@@ -23,6 +23,10 @@ public class WeatherView {
     private TextField txtField;
     @FXML
     private Button searchButton;
+    @FXML
+    private Label city;
+    @FXML
+    private Label date;
 
     @FXML
     protected void onHelloButtonClick(){
@@ -54,9 +58,8 @@ public class WeatherView {
     }
 
     public void setCityAndDate(String city, String date){
-        /*
-        Stadt und Datum setzen
-         */
+        this.city.setText(city);
+        this.date.setText(date);
     }
 
     public void setState(String monday, String tuesday, String wednesday, String thursday, String friday, String saturday, String sunday){

@@ -42,11 +42,21 @@ public class WeatherApp extends Application {
         this.view.setImgPath(Day.MONDAY.getImgPath(), Day.TUESDAY.getImgPath(), Day.WEDNESDAY.getImgPath(), Day.THURSDAY.getImgPath(), Day.FRIDAY.getImgPath(), Day.SATURDAY.getImgPath(), Day.SUNDAY.getImgPath());
         this.view.setCityAndDate(city, date);
         this.view.setState(state.get(Day.MONDAY), state.get(Day.TUESDAY), state.get(Day.WEDNESDAY), state.get(Day.THURSDAY), state.get(Day.FRIDAY),state.get(Day.SATURDAY), state.get(Day.SUNDAY));
+        this.view.setCityAndDate(city, date);
     }
 
     public void setListener(){
-       // Button b = this.view.getSearchButton();
-        //System.out.println(b.getText());
+        Button b = this.view.getSearchButton();
+        b.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                try {
+                    search();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
 
     }
 
