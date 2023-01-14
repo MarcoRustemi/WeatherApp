@@ -2,6 +2,7 @@ package at.ac.campuswien.weatherapp;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -15,13 +16,14 @@ public class WeatherApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(WeatherApp.class.getResource("app-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1200, 800);
+        Parent root = fxmlLoader.load();
+        this.view = (WeatherView) fxmlLoader.getController();
+        Scene scene = new Scene(root, 1200, 800);
         stage.setTitle("WeatherApp");
         stage.setScene(scene);
         stage.show();
         this.model = new WeatherModel();
-        //setView();
-        
+        setView();
     }
 
     public void setView(){
@@ -32,6 +34,10 @@ public class WeatherApp extends Application {
         this.view.setTemp(temp.get(Day.MONDAY), temp.get(Day.TUESDAY), temp.get(Day.WEDNESDAY), temp.get(Day.THURSDAY), temp.get(Day.FRIDAY), temp.get(Day.SATURDAY), temp.get(Day.SUNDAY));
         this.view.setImgPath(Day.MONDAY.getImgPath(), Day.TUESDAY.getImgPath(), Day.WEDNESDAY.getImgPath(), Day.THURSDAY.getImgPath(), Day.FRIDAY.getImgPath(), Day.SATURDAY.getImgPath(), Day.SUNDAY.getImgPath());
         this.view.setCityAndDate(city, date);
+    }
+
+    public void setListener(){
+
     }
 
     public void search() throws IOException {

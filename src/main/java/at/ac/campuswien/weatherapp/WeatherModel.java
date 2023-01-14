@@ -44,7 +44,9 @@ public class WeatherModel {
             JSONObject jsonObject1 = (JSONObject) jsonObject.get("day");
             double temp = (double) jsonObject1.get("avgtemp_c");
             JSONObject icon = (JSONObject) jsonObject1.get("condition");
-            String iconPath = "../../resources/Images" + ((String) icon.get("icon")).substring(20);
+            //String dir = System.getProperty("user.dir");
+            String iconPath = "../../../../Images" + ((String) icon.get("icon")).substring(20);
+            //System.out.println(iconPath);
             day.setImgPath(iconPath);
             this.temperature.put(day, temp);
         }

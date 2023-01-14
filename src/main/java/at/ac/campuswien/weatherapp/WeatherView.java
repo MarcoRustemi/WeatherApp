@@ -3,7 +3,12 @@ package at.ac.campuswien.weatherapp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 
 
 public class WeatherView {
@@ -18,20 +23,8 @@ public class WeatherView {
 
     @FXML
     protected void onHelloButtonClick(){
-        zustMo.setText("Cloudy");
-        zustDi.setText("Cloudy");
-        zustMi.setText("Cloudy");
-        zustDo.setText("Cloudy");
-        zustFr.setText("Cloudy");
-        zustSa.setText("Cloudy");
-        zustSo.setText("Cloudy");
-        tempMo.setText("35°");
-        tempDi.setText("35°");
-        tempMi.setText("35°");
-        tempDo.setText("35°");
-        tempFr.setText("35°");
-        tempSa.setText("35°");
-        tempSo.setText("35°");
+        //zustMo.setText("Cloudy");
+
     }
 
     public void setTemp(Double monday, Double tuesday, Double wednesday, Double thursday, Double friday, Double saturday, Double sunday){
@@ -42,15 +35,20 @@ public class WeatherView {
         tempFr.setText(friday.toString() + " °C");
         tempSa.setText(saturday.toString() + " °C");
         tempSo.setText(sunday.toString() + " °C");
-        /*
-        Alle Textfelder entsprechend setzen
-         */
     }
 
     public void setImgPath(String monday, String tuesday, String wednesday, String thursday, String friday, String saturday, String sunday){
-        /*
-        Alle IMGs entsprechend setzen und aktualisieren
-         */
+        /*Image i = new Image(monday);
+        String dir = System.getProperty("user.dir");
+
+        //File f = new File("test.txt");
+       // System.out.println(f.getAbsolutePath());
+       // System.out.println(f.getPath());
+
+        // directory from where the program was launched
+        // e.g /home/mkyong/projects/core-java/java-io
+        System.out.println(dir);
+        this.imgMo.setImage(i);*/
     }
 
     public void setCityAndDate(String city, String date){
