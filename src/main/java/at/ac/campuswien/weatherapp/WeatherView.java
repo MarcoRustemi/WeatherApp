@@ -15,6 +15,7 @@ public class WeatherView {
     private ImageView imgMo,imgDi,imgMi,imgDo,imgFr,imgSa,imgSo;// fx:ids für icons Mo-So
     @FXML
     private TextField txtField;
+
     @FXML
     protected void onHelloButtonClick(){
         zustMo.setText("Cloudy");
@@ -31,6 +32,38 @@ public class WeatherView {
         tempFr.setText("35°");
         tempSa.setText("35°");
         tempSo.setText("35°");
+    }
+
+    public void setTemp(Double monday, Double tuesday, Double wednesday, Double thursday, Double friday, Double saturday, Double sunday){
+        tempMo.setText(monday.toString() + " °C");
+        tempDi.setText(tuesday.toString() + " °C");
+        tempMi.setText(wednesday.toString() + " °C");
+        tempDo.setText(thursday.toString() + " °C");
+        tempFr.setText(friday.toString() + " °C");
+        tempSa.setText(saturday.toString() + " °C");
+        tempSo.setText(sunday.toString() + " °C");
+        /*
+        Alle Textfelder entsprechend setzen
+         */
+    }
+
+    public void setImgPath(String monday, String tuesday, String wednesday, String thursday, String friday, String saturday, String sunday){
+        /*
+        Alle IMGs entsprechend setzen und aktualisieren
+         */
+    }
+
+    public void setCityAndDate(String city, String date){
+        /*
+        Stadt und Datum setzen
+         */
+    }
+
+    public String getInput() {
+        /*
+        Return Eingabe TextField
+         */
+        return "";
     }
 }
 

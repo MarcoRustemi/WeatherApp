@@ -48,8 +48,6 @@ public class WeatherModel {
             day.setImgPath(iconPath);
             this.temperature.put(day, temp);
         }
-
-        System.out.println(this.temperature.toString());
     }
 
     public Day getDay(String date){
@@ -80,8 +78,15 @@ public class WeatherModel {
         return null;
     }
 
+    public HashMap<Day, Double> getTemperature() {
+        return temperature;
+    }
 
-    public static void main(String[] args) {
-        WeatherModel w = new WeatherModel();
+    public String getCity() {
+        return city;
+    }
+
+    public String getCurrDate() {
+        return currDate;
     }
 }
