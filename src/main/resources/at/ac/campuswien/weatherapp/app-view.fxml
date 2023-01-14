@@ -10,7 +10,7 @@
         <Image url="@../../../../Images/Hintergrund.jpg" />
     </ImageView>
     <TextField id="searchbar" fx:id="txtField" />
-    <Button id="button-style" onAction="#onHelloButtonClick" text="Search" />
+    <Button id="button-style" fx:id="searchButton" onAction="#onHelloButtonClick" text="Search" />
     <Text id="title-style" text="Weather App" />
     <Text id="city-text-style" text="City:" />
     <Text layoutX="100.0" layoutY="515.0" text="Mo" AnchorPane.leftAnchor="100.0" />

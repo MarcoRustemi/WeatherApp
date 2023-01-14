@@ -1,6 +1,7 @@
 package at.ac.campuswien.weatherapp;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -20,11 +21,16 @@ public class WeatherView {
     private ImageView imgMo,imgDi,imgMi,imgDo,imgFr,imgSa,imgSo;// fx:ids für icons Mo-So
     @FXML
     private TextField txtField;
+    @FXML
+    private Button searchButton;
 
     @FXML
     protected void onHelloButtonClick(){
         //zustMo.setText("Cloudy");
+    }
 
+    public Button getSearchButton(){
+        return searchButton;
     }
 
     public void setTemp(Double monday, Double tuesday, Double wednesday, Double thursday, Double friday, Double saturday, Double sunday){
@@ -38,17 +44,13 @@ public class WeatherView {
     }
 
     public void setImgPath(String monday, String tuesday, String wednesday, String thursday, String friday, String saturday, String sunday){
-        /*Image i = new Image(monday);
-        String dir = System.getProperty("user.dir");
-
-        //File f = new File("test.txt");
-       // System.out.println(f.getAbsolutePath());
-       // System.out.println(f.getPath());
-
-        // directory from where the program was launched
-        // e.g /home/mkyong/projects/core-java/java-io
-        System.out.println(dir);
-        this.imgMo.setImage(i);*/
+        this.imgMo.setImage(new Image(new File(monday).toURI().toString()));
+        this.imgDi.setImage(new Image(new File(tuesday).toURI().toString()));
+        this.imgMi.setImage(new Image(new File(wednesday).toURI().toString()));
+        this.imgDo.setImage(new Image(new File(thursday).toURI().toString()));
+        this.imgFr.setImage(new Image(new File(friday).toURI().toString()));
+        this.imgSa.setImage(new Image(new File(saturday).toURI().toString()));
+        this.imgSo.setImage(new Image(new File(sunday).toURI().toString()));
     }
 
     public void setCityAndDate(String city, String date){
@@ -58,10 +60,7 @@ public class WeatherView {
     }
 
     public String getInput() {
-        /*
-        Return Eingabe TextField
-         */
-        return "";
+        return this.txtField.getText();
     }
 }
 

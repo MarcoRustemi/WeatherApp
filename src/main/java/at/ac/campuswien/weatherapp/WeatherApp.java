@@ -1,9 +1,14 @@
 package at.ac.campuswien.weatherapp;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,6 +29,7 @@ public class WeatherApp extends Application {
         stage.show();
         this.model = new WeatherModel();
         setView();
+        setListener();
     }
 
     public void setView(){
@@ -37,6 +43,8 @@ public class WeatherApp extends Application {
     }
 
     public void setListener(){
+       // Button b = this.view.getSearchButton();
+        //System.out.println(b.getText());
 
     }
 
