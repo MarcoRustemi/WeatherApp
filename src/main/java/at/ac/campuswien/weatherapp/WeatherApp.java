@@ -36,10 +36,12 @@ public class WeatherApp extends Application {
         String city = this.model.getCity();
         String date = this.model.getCurrDate();
         HashMap<Day, Double> temp = this.model.getTemperature();
+        HashMap<Day, String> state = this.model.getState();
 
         this.view.setTemp(temp.get(Day.MONDAY), temp.get(Day.TUESDAY), temp.get(Day.WEDNESDAY), temp.get(Day.THURSDAY), temp.get(Day.FRIDAY), temp.get(Day.SATURDAY), temp.get(Day.SUNDAY));
         this.view.setImgPath(Day.MONDAY.getImgPath(), Day.TUESDAY.getImgPath(), Day.WEDNESDAY.getImgPath(), Day.THURSDAY.getImgPath(), Day.FRIDAY.getImgPath(), Day.SATURDAY.getImgPath(), Day.SUNDAY.getImgPath());
         this.view.setCityAndDate(city, date);
+        this.view.setState(state.get(Day.MONDAY), state.get(Day.TUESDAY), state.get(Day.WEDNESDAY), state.get(Day.THURSDAY), state.get(Day.FRIDAY),state.get(Day.SATURDAY), state.get(Day.SUNDAY));
     }
 
     public void setListener(){

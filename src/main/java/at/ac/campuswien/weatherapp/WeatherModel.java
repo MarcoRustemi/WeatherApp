@@ -13,6 +13,7 @@ public class WeatherModel {
 
     private ApiConnector connector;
     private HashMap<Day, Double> temperature;
+    private HashMap<Day, String> state;
     private HashMap<String, String> params;
     final String key = "265aa588f98045e7933132318231001";
     private String city;
@@ -23,9 +24,11 @@ public class WeatherModel {
         this.temperature = new HashMap<>();
         this.currDate = new Date().toGMTString();
         this.params = new HashMap<>();
+        this.state = new HashMap<>();
         // Standardcity -> Vienna
         params.put("key", key);
         params.put("days", "7");
+        params.put("lang", "de");
         try {
             loadCity("Vienna");
         } catch (IOException e) {
@@ -43,11 +46,12 @@ public class WeatherModel {
             Day day = getDay((String) jsonObject.get("date"));
             JSONObject jsonObject1 = (JSONObject) jsonObject.get("day");
             double temp = (double) jsonObject1.get("avgtemp_c");
-            JSONObject icon = (JSONObject) jsonObject1.get("condition");
+            JSONObject condition = (JSONObject) jsonObject1.get("condition");
             String dir = System.getProperty("user.dir");
-            String iconPath = dir + "/src/main/resources/Images" + ((String) icon.get("icon")).substring(20);
+            String iconPath = dir + "/src/main/resources/Images" + ((String) condition.get("icon")).substring(20);
             day.setImgPath(iconPath);
             this.temperature.put(day, temp);
+            this.state.put(day, (String) condition.get("text"));
         }
     }
 
@@ -89,5 +93,9 @@ public class WeatherModel {
 
     public String getCurrDate() {
         return currDate;
+    }
+
+    public HashMap<Day, String> getState(){
+        return state;
     }
 }

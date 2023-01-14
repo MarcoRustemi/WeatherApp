@@ -59,6 +59,16 @@ public class WeatherView {
          */
     }
 
+    public void setState(String monday, String tuesday, String wednesday, String thursday, String friday, String saturday, String sunday){
+        this.zustMo.setText(monday);
+        this.zustDi.setText(tuesday);
+        this.zustMi.setText(wednesday);
+        this.zustDo.setText(thursday);
+        this.zustFr.setText(friday);
+        this.zustSa.setText(saturday);
+        this.zustSo.setText(sunday);
+    }
+
     public String getInput() {
         return this.txtField.getText();
     }
