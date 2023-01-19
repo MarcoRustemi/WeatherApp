@@ -1,8 +1,23 @@
-#body-bg {
+.root {
+    -fx-background-image: url("../Images/Hintergrund.jpg");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+
+}
+
+
+
+.white-background {
+    -fx-background-color: #FFFF;
+    -fx-background-radius: 11px;
+}
+
+/*#body-bg {
     -fx-background-repeat: stretch;
     -fx-background-position: center center;
     -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
-}
+}*/
 
 #searchbar{
     -fx-translate-x: 526;
@@ -17,6 +32,7 @@
     -fx-translate-y: 188;
     -fx-fill: white;
     -fx-font-weight: bold;
+    -fx-text-shadow: 2 2 5;
 }
 .custom-bold {
     font-weight: bold;
@@ -47,7 +63,6 @@
     -fx-font-weight: bold;
 }
 .Label{
-    -fx-text-fill:white ;
     -fx-font-weight: bold;
     -fx-alignment: center;
 }
