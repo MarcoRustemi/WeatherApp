@@ -2,9 +2,7 @@ package at.ac.campuswien.weatherapp;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,6 +11,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class WeatherApp extends Application {
 
@@ -28,6 +29,7 @@ public class WeatherApp extends Application {
         stage.setScene(scene);
         stage.show();
         this.model = new WeatherModel();
+        this.view.setCurrDay(this.model.getDayAsNumber());
         setView();
         setListener();
     }
@@ -45,6 +47,10 @@ public class WeatherApp extends Application {
         this.view.setCityAndDate(city, date);
     }
 
+    public void setView(String errorMessage){
+        this.view.setErrorMessage(errorMessage);
+    }
+
     public void setListener(){
         Button b = this.view.getSearchButton();
         b.setOnAction(new EventHandler<ActionEvent>() {
@@ -60,10 +66,16 @@ public class WeatherApp extends Application {
 
     }
 
-    public void search() throws IOException {
+    public void search() throws IOException{
+        this.view.getLoading().setVisible(true);
         String city = this.view.getInput();
-        this.model.loadCity(city);
-        this.setView();
+        ErrorResponse<Boolean, String> err = this.model.loadCity(city);
+        if (err.getStatus() == Boolean.FALSE){
+            setView(err.getErrorMessage());
+        }else {
+            this.setView();
+            this.view.getLoading().setVisible(false);
+        }
     }
 
     public static void main(String[] args) {

@@ -18,7 +18,7 @@ public class ApiConnector {
     public ApiConnector(){
     }
 
-    public ApiResponse<Boolean, JSONArray> connect(HashMap<String, String> params) throws IOException {
+    public ApiResponse<Boolean, JSONArray> connect(HashMap<String, String> params) throws IOException, ApiRespnseException {
 
         // Create a HttpURLConnection instance; NOTE: Connection is not established yet
         URL url = new URL(this.url);
@@ -36,16 +36,28 @@ public class ApiConnector {
         out.close();
 
         // con.setConnectTimeout(5000);
-        // con.setReadTimeout(5000);
+        //con.setReadTimeout(5000);
 
         int status = con.getResponseCode();
 
         Reader streamReader = null;
 
-        if (status > 299) {
-            streamReader = new InputStreamReader(con.getErrorStream());
-            return new ApiResponse<>(Boolean.FALSE, null);
-        } else {
+        if(status > 299){
+            BufferedReader input = new BufferedReader(
+                    new InputStreamReader(con.getErrorStream()));
+            String error = input.readLine();
+            input.close();
+            JSONParser parser = new JSONParser();
+            JSONObject content;
+            JSONObject content2;
+            try {
+                content = (JSONObject) parser.parse(error);
+                content2 = (JSONObject) content.get("error");
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
+            throw new ApiRespnseException(content2.get("message").toString());
+        }else {
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(con.getInputStream()));
             String o = in.readLine();
@@ -70,5 +82,3 @@ public class ApiConnector {
 
     }
 }
-
-//265aa588f98045e7933132318231001

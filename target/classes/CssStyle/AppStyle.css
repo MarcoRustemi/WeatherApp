@@ -6,7 +6,10 @@
 
 }
 
-
+.current-day{
+    -fx-background-color: lightgreen;
+    -fx-background-radius: 11px;
+}
 
 .white-background {
     -fx-background-color: #FFFF;

@@ -1,15 +1,18 @@
 package at.ac.campuswien.weatherapp;
 
+import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 import java.io.File;
-import java.io.IOException;
-import java.net.URL;
 
 
 public class WeatherView {
@@ -27,17 +30,19 @@ public class WeatherView {
     private Label city;
     @FXML
     private Label date;
-
     @FXML
-    protected void onHelloButtonClick(){
-        //zustMo.setText("Cloudy");
-    }
+    private Label errorMessage;
+    @FXML
+    private BorderPane moBackground, tueBackground, wedBackground, thuBackground, friBackground, satBackground, sunBackground;
+    @FXML
+    private ProgressBar loading;
 
     public Button getSearchButton(){
         return searchButton;
     }
 
     public void setTemp(Double monday, Double tuesday, Double wednesday, Double thursday, Double friday, Double saturday, Double sunday){
+        this.errorMessage.setVisible(false);
         tempMo.setText(monday.toString() + " °C");
         tempDi.setText(tuesday.toString() + " °C");
         tempMi.setText(wednesday.toString() + " °C");
@@ -74,6 +79,41 @@ public class WeatherView {
 
     public String getInput() {
         return this.txtField.getText();
+    }
+
+    public void setErrorMessage(String e){
+        this.errorMessage.setText(e);
+        this.errorMessage.setVisible(true);
+    }
+
+    public void setCurrDay(int day){
+        switch (day){
+            case 1:
+                this.moBackground.getStyleClass().setAll("current-day");
+                break;
+            case 2:
+                this.tueBackground.getStyleClass().setAll("current-day");
+                break;
+            case 3:
+                this.wedBackground.getStyleClass().setAll("current-day");
+                break;
+            case 4:
+                this.thuBackground.getStyleClass().setAll("current-day");
+                break;
+            case 5:
+                this.friBackground.getStyleClass().setAll("current-day");
+                break;
+            case 6:
+                this.satBackground.getStyleClass().setAll("current-day");
+                break;
+            case 7:
+                this.sunBackground.getStyleClass().setAll("current-day");
+                break;
+        }
+    }
+
+    public ProgressBar getLoading(){
+        return this.loading;
     }
 }
 

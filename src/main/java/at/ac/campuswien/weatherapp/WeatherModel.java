@@ -22,7 +22,6 @@ public class WeatherModel {
     public WeatherModel(){
         this.connector = new ApiConnector();
         this.temperature = new HashMap<>();
-        this.currDate = new Date().toGMTString();
         this.params = new HashMap<>();
         this.state = new HashMap<>();
         // Standardcity -> Vienna
@@ -36,32 +35,40 @@ public class WeatherModel {
         }
     }
 
-    public void loadCity(String city) throws IOException {
+    public ErrorResponse<Boolean, String> loadCity(String city) throws IOException{
         this.city = city;
         this.params.put("q", city);
-        ApiResponse<Boolean, JSONArray> content = connector.connect(this.params);
-
-        for (int i = 0; i < 7; i++) {
-            JSONObject jsonObject = (JSONObject) content.getJson().get(i);
-            Day day = getDay((String) jsonObject.get("date"));
-            JSONObject jsonObject1 = (JSONObject) jsonObject.get("day");
-            double temp = (double) jsonObject1.get("avgtemp_c");
-            JSONObject condition = (JSONObject) jsonObject1.get("condition");
-            String dir = System.getProperty("user.dir");
-            String iconPath = dir + "/src/main/resources/Images" + ((String) condition.get("icon")).substring(20);
-            day.setImgPath(iconPath);
-            this.temperature.put(day, temp);
-            this.state.put(day, (String) condition.get("text"));
+        ApiResponse<Boolean, JSONArray> content = null;
+        try {
+            content = connector.connect(this.params);
+            for (int i = 0; i < 7; i++) {
+                JSONObject jsonObject = (JSONObject) content.getJson().get(i);
+                Day day = getDay((String) jsonObject.get("date"));
+                if (i == 0){
+                    this.currDate = (String) jsonObject.get("date");
+                }
+                JSONObject jsonObject1 = (JSONObject) jsonObject.get("day");
+                double temp = (double) jsonObject1.get("avgtemp_c");
+                JSONObject condition = (JSONObject) jsonObject1.get("condition");
+                String dir = System.getProperty("user.dir");
+                String iconPath = dir + "/src/main/resources/Images" + ((String) condition.get("icon")).substring(20);
+                day.setImgPath(iconPath);
+                this.temperature.put(day, temp);
+                this.state.put(day, (String) condition.get("text"));
+            }
+            return new ErrorResponse<>(Boolean.TRUE, null);
+        } catch (ApiRespnseException e) {
+            return (new ErrorResponse<>(Boolean.FALSE, e.getMessage()));
         }
     }
 
     public Day getDay(String date){
         String[] array = date.split("-");
-        int tag = Integer.parseInt(array[2]);
-        int monat = Integer.parseInt(array[1]);
-        int jahr = Integer.parseInt(array[0]);
+        int day = Integer.parseInt(array[2]);
+        int month = Integer.parseInt(array[1]);
+        int year = Integer.parseInt(array[0]);
 
-        LocalDate d = LocalDate.of(jahr, monat, tag);
+        LocalDate d = LocalDate.of(year, month, day);
         DayOfWeek dayOfWeek = d.getDayOfWeek();
 
         switch (dayOfWeek.getValue()){
@@ -81,6 +88,18 @@ public class WeatherModel {
                 return Day.SUNDAY;
         }
         return null;
+    }
+
+    public int getDayAsNumber(){
+        String[] array = currDate.split("-");
+        int day = Integer.parseInt(array[2]);
+        int month = Integer.parseInt(array[1]);
+        int year = Integer.parseInt(array[0]);
+
+        LocalDate d = LocalDate.of(year, month, day);
+        DayOfWeek dayOfWeek = d.getDayOfWeek();
+
+        return dayOfWeek.getValue();
     }
 
     public HashMap<Day, Double> getTemperature() {
