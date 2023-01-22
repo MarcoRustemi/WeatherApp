@@ -6,7 +6,6 @@ import org.json.simple.JSONObject;
 import java.io.IOException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.HashMap;
 
 public class WeatherModel {
