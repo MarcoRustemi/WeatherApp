@@ -67,7 +67,7 @@ public class WeatherApp extends Application {
     }
 
     public void search() throws IOException{
-        this.view.getLoading().setVisible(true);
+        //this.view.getLoading().setVisible(true);
         String city = this.view.getInput();
         ErrorResponse<Boolean, String> err = this.model.loadCity(city);
         if (err.getStatus() == Boolean.FALSE){
