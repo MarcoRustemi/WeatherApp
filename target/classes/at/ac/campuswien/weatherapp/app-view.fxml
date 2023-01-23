@@ -2,9 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,165 +10,115 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="body-bg" prefHeight="800.0" prefWidth="1196.0" stylesheets="@../../../../CssStyle/AppStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.campuswien.weatherapp.WeatherView">
+<AnchorPane id="root" prefHeight="800.0" prefWidth="1196.0" stylesheets="@../../../../CssStyle/AppStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.campuswien.weatherapp.WeatherView">
     <ImageView fitHeight="800" fitWidth="1200" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@../../../../Images/Hintergrund.jpg" />
     </ImageView>
     <TextField id="searchbar" fx:id="txtField" layoutX="6.0" layoutY="-67.0" />
-    <Button id="button-style" fx:id="searchButton" layoutX="11.0" layoutY="-67.0" prefHeight="17.0" text="Search">
-        <font>
-            <Font name="Berlin Sans FB Demi Bold" size="16.0" />
-        </font></Button>
+    <Button id="button-style" fx:id="searchButton" layoutX="-4.0" layoutY="-67.0" prefHeight="17.0" text="Search">
+    </Button>
     <Text id="title-style" layoutX="12.0" layoutY="95.0" text="CloudWatcher" textAlignment="CENTER" />
-    <Text id="city-text-style" layoutX="-10.0" layoutY="-64.0" text="City:">
-        <font>
-            <Font name="Berlin Sans FB Demi Bold" size="21.0" />
-        </font></Text>
-    <Text fill="WHITE" layoutX="265.0" layoutY="454.0" text="Di">
-        <font>
-            <Font name="Berlin Sans FB Demi Bold" size="20.0" />
-        </font></Text>
-    <Text fill="WHITE" layoutX="427.0" layoutY="453.0" text="Mi">
-        <font>
-            <Font name="Berlin Sans FB Demi Bold" size="20.0" />
-        </font></Text>
-    <Text fill="WHITE" layoutX="587.0" layoutY="452.0" text="Do">
-        <font>
-            <Font name="Berlin Sans FB Demi Bold" size="20.0" />
-        </font></Text>
-    <Text fill="WHITE" layoutX="755.0" layoutY="451.0" text="Fr">
-        <font>
-            <Font name="Berlin Sans FB Demi Bold" size="20.0" />
-        </font></Text>
-    <Text fill="WHITE" layoutX="917.0" layoutY="451.0" text="Sa">
-        <font>
-            <Font name="Berlin Sans FB Demi Bold" size="20.0" />
-        </font></Text>
-    <Text fill="WHITE" layoutX="1081.0" layoutY="450.0" text="So">
-        <font>
-            <Font name="Berlin Sans FB Demi Bold" size="20.0" />
-        </font></Text>
-    <Label fx:id="city" layoutX="553.0" layoutY="373.0" text="CurrentCityName" textFill="#e8ff00">
-        <font>
-            <Font name="Berlin Sans FB Demi Bold" size="24.0" />
-        </font></Label>
-    <Label fx:id="date" layoutX="589.0" layoutY="736.0" text="Date" textAlignment="CENTER" textFill="WHITE">
-        <font>
-            <Font name="Berlin Sans FB Demi Bold" size="24.0" />
-        </font></Label>
-    <BorderPane fx:id="moBackground" layoutX="34.0" layoutY="469.0" prefHeight="234.0" prefWidth="156.0" styleClass="white-background">
-        <center>
-            <Label fx:id="tempMo" prefHeight="71.0" prefWidth="85.0" styleClass="Label" text="TempMo" BorderPane.alignment="CENTER">
-                <font>
-                    <Font size="23.0" />
-                </font>
-            </Label>
-        </center>
-        <top>
-            <ImageView fx:id="imgMo" fitHeight="64.0" fitWidth="64.0" BorderPane.alignment="CENTER" />
-        </top>
-        <bottom>
-            <Label fx:id="zustMo" prefHeight="48.0" prefWidth="205.0" styleClass="Label" text="ZustMo" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER" />
-        </bottom></BorderPane>
-    <Text fill="WHITE" layoutX="99.0" layoutY="455.0" text="Mo">
-        <font>
-            <Font name="Berlin Sans FB Demi Bold" size="20.0" />
-        </font>
+    <Text id="cityText" layoutX="-1.0" layoutY="-64.0" text="City:">
     </Text>
-    <BorderPane fx:id="tueBackground" layoutX="197.0" layoutY="469.0" prefHeight="234.0" prefWidth="156.0" styleClass="white-background">
-        <bottom>
-            <Label fx:id="zustDi" prefHeight="48.0" prefWidth="178.0" styleClass="Label" text="ZustDi" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER" />
-        </bottom>
+    <Text layoutX="265.0" styleClass="dayFont" text="Di">
+    </Text>
+    <Text layoutX="427.0" styleClass="dayFont" text="Mi">
+    </Text>
+    <Text layoutX="587.0" styleClass="dayFont" text="Do">
+    </Text>
+    <Text layoutX="755.0" styleClass="dayFont" text="Fr">
+    </Text>
+    <Text layoutX="917.0" styleClass="dayFont" text="Sa">
+    </Text>
+    <Text layoutX="1081.0" styleClass="dayFont" text="So">
+    </Text>
+    <Label fx:id="city" id="currentCity" text="CurrentCityName" >
+    </Label>
+    <Label fx:id="date" id="yearDay" text="Date">
+        <font>
+            <Font name="Berlin Sans FB Demi Bold" size="24.0" />
+        </font></Label>
+    <BorderPane fx:id="moBackground" layoutX="34.0" styleClass="white-background">
         <center>
-            <Label fx:id="tempDi" prefHeight="48.0" prefWidth="85.0" styleClass="Label" text="TempDi" BorderPane.alignment="CENTER">
-                <font>
-                    <Font size="23.0" />
-                </font>
+            <Label fx:id="tempMo" prefHeight="71.0" styleClass="temp" text="TempMo">
             </Label>
         </center>
         <top>
-            <ImageView fx:id="imgDi" fitHeight="64.0" fitWidth="64.0" BorderPane.alignment="CENTER" />
+            <ImageView fx:id="imgMo" styleClass="imagesWeather" BorderPane.alignment="CENTER" />
+        </top>
+        <bottom>
+            <Label fx:id="zustMo" prefWidth="205.0" styleClass="status" text="ZustMo" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+        </bottom></BorderPane>
+    <Text layoutX="99.0" styleClass="dayFont" text="Mo">
+    </Text>
+    <BorderPane fx:id="tueBackground" layoutX="197.0" styleClass="white-background">
+        <bottom>
+            <Label fx:id="zustDi" prefWidth="178.0" styleClass="status" text="ZustDi" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+        </bottom>
+        <center>
+            <Label fx:id="tempDi" prefHeight="48.0" styleClass="temp" text="TempDi">
+            </Label>
+        </center>
+        <top>
+            <ImageView fx:id="imgDi" styleClass="imagesWeather" BorderPane.alignment="CENTER" />
         </top>
     </BorderPane>
-    <BorderPane fx:id="wedBackground" layoutX="360.0" layoutY="469.0" prefHeight="234.0" prefWidth="156.0" styleClass="white-background">
+    <BorderPane fx:id="wedBackground" layoutX="360.0" styleClass="white-background">
         <bottom>
-            <Label fx:id="zustMi" prefHeight="48.0" prefWidth="127.0" styleClass="Label" text="ZustMi" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER" />
+            <Label fx:id="zustMi" prefWidth="127.0" styleClass="status" text="ZustMi" textAlignment="CENTER" BorderPane.alignment="CENTER" />
         </bottom>
         <center>
-            <Label fx:id="tempMi" prefHeight="48.0" prefWidth="85.0" styleClass="Label" text="TempMi" BorderPane.alignment="CENTER">
-                <font>
-                    <Font size="23.0" />
-                </font>
+            <Label fx:id="tempMi" prefHeight="48.0" styleClass="temp" text="TempMi">
             </Label>
         </center>
         <top>
-            <ImageView fx:id="imgMi" fitHeight="64.0" fitWidth="64.0" BorderPane.alignment="CENTER" />
+            <ImageView fx:id="imgMi" styleClass="imagesWeather" BorderPane.alignment="CENTER" />
         </top></BorderPane>
-    <BorderPane fx:id="thuBackground" layoutX="523.0" layoutY="469.0" prefHeight="234.0" prefWidth="156.0" styleClass="white-background">
+    <BorderPane fx:id="thuBackground" layoutX="523.0" styleClass="white-background">
         <bottom>
-            <Label fx:id="zustDo" prefHeight="48.0" prefWidth="127.0" styleClass="Label" text="ZustDo" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER" />
+            <Label fx:id="zustDo" prefWidth="127.0" styleClass="status" text="ZustDo" textAlignment="CENTER" BorderPane.alignment="CENTER" />
         </bottom>
         <center>
-            <Label fx:id="tempDo" prefHeight="48.0" prefWidth="85.0" styleClass="Label" text="TempDo" BorderPane.alignment="CENTER">
-                <font>
-                    <Font size="23.0" />
-                </font>
+            <Label fx:id="tempDo" prefHeight="48.0" styleClass="temp" text="TempDo">
             </Label>
         </center>
         <top>
-            <ImageView fx:id="imgDo" fitHeight="64.0" fitWidth="64.0" BorderPane.alignment="CENTER" />
+            <ImageView fx:id="imgDo" styleClass="imagesWeather" BorderPane.alignment="CENTER" />
         </top></BorderPane>
-    <BorderPane fx:id="friBackground" layoutX="686.0" layoutY="469.0" prefHeight="234.0" prefWidth="156.0" styleClass="white-background">
+    <BorderPane fx:id="friBackground" layoutX="686.0" styleClass="white-background">
         <bottom>
-            <Label fx:id="zustFr" prefHeight="48.0" prefWidth="127.0" styleClass="Label" text="ZustFr" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER" />
+            <Label fx:id="zustFr" prefWidth="127.0" styleClass="status" text="ZustFr" textAlignment="CENTER" BorderPane.alignment="CENTER" />
         </bottom>
         <center>
-            <Label fx:id="tempFr" prefHeight="48.0" prefWidth="85.0" styleClass="Label" text="TempFr" BorderPane.alignment="CENTER">
-                <font>
-                    <Font size="23.0" />
-                </font>
+            <Label fx:id="tempFr" prefHeight="48.0" styleClass="temp" text="TempFr">
             </Label>
         </center>
         <top>
-            <ImageView fx:id="imgFr" fitHeight="64.0" fitWidth="64.0" BorderPane.alignment="CENTER" />
+            <ImageView fx:id="imgFr" styleClass="imagesWeather" BorderPane.alignment="CENTER" />
         </top></BorderPane>
-    <BorderPane fx:id="satBackground" layoutX="849.0" layoutY="469.0" prefHeight="234.0" prefWidth="156.0" styleClass="white-background">
+    <BorderPane fx:id="satBackground" layoutX="849.0" styleClass="white-background">
         <bottom>
-            <Label fx:id="zustSa" prefHeight="48.0" prefWidth="127.0" styleClass="Label" text="ZustSa" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER" />
+            <Label fx:id="zustSa" prefWidth="127.0" styleClass="status" text="ZustSa" textAlignment="CENTER" BorderPane.alignment="CENTER" />
         </bottom>
         <center>
-            <Label fx:id="tempSa" prefHeight="48.0" prefWidth="85.0" styleClass="Label" text="TempSa" BorderPane.alignment="CENTER">
-                <font>
-                    <Font size="23.0" />
-                </font>
+            <Label fx:id="tempSa" prefHeight="48.0" styleClass="temp" text="TempSa">
             </Label>
         </center>
         <top>
-            <ImageView fx:id="imgSa" fitHeight="64.0" fitWidth="64.0" BorderPane.alignment="CENTER" />
+            <ImageView fx:id="imgSa" styleClass="imagesWeather" BorderPane.alignment="CENTER" />
         </top></BorderPane>
-    <BorderPane fx:id="sunBackground" layoutX="1012.0" layoutY="469.0" prefHeight="234.0" prefWidth="156.0" styleClass="white-background">
+    <BorderPane fx:id="sunBackground" layoutX="1012.0" styleClass="white-background">
         <bottom>
-            <Label fx:id="zustSo" prefHeight="48.0" prefWidth="127.0" styleClass="Label" text="ZustSo" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER" />
+            <Label fx:id="zustSo" prefWidth="127.0" styleClass="status" text="ZustSo" textAlignment="CENTER" BorderPane.alignment="CENTER" />
         </bottom>
         <center>
-            <Label fx:id="tempSo" prefHeight="48.0" prefWidth="85.0" styleClass="Label" text="TempSo" BorderPane.alignment="CENTER">
-                <font>
-                    <Font size="23.0" />
-                </font>
+            <Label fx:id="tempSo" prefHeight="48.0" styleClass="temp" text="TempSo" BorderPane.alignment="CENTER">
             </Label>
         </center>
         <top>
-            <ImageView fx:id="imgSo" fitHeight="64.0" fitWidth="64.0" BorderPane.alignment="CENTER" />
+            <ImageView fx:id="imgSo"  styleClass="imagesWeather" BorderPane.alignment="CENTER"/>
         </top>
     </BorderPane>
-   <Label fx:id="errorMessage" layoutX="830.0" layoutY="319.0" textFill="#e42e2e" visible="false">
-      <font>
-         <Font size="24.0" />
-      </font>
+   <Label fx:id="errorMessage" styleClass="errorMessage1" visible="false">
    </Label>
-   <ProgressBar fx:id="loading" layoutX="538.0" layoutY="377.0" prefWidth="200.0" visible="false">
-      <effect>
-         <Glow level="0.44" />
-      </effect>
-   </ProgressBar>
 </AnchorPane>

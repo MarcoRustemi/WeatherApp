@@ -3,7 +3,6 @@ package at.ac.campuswien.weatherapp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -14,11 +13,11 @@ import java.io.File;
 
 public class WeatherView {
     @FXML
-    private Label zustMo, zustDi, zustMi, zustDo,zustFr,zustSa,zustSo; //fx:ids für Wetterzustaende(cloudy,rainy,sunny)Mo-So
+    private Label zustMo, zustDi, zustMi, zustDo,zustFr,zustSa,zustSo; //fx:ids conditions (cloudy,rainy,sunny)Mo-So
     @FXML
-    private Label tempMo, tempDi, tempMi,tempDo, tempFr,tempSa,tempSo; //fx:ids für temp Mo-So
+    private Label tempMo, tempDi, tempMi,tempDo, tempFr,tempSa,tempSo; //fx:ids temp Mo-So
     @FXML
-    private ImageView imgMo,imgDi,imgMi,imgDo,imgFr,imgSa,imgSo;// fx:ids für icons Mo-So
+    private ImageView imgMo,imgDi,imgMi,imgDo,imgFr,imgSa,imgSo;// fx:ids icons Mo-So
     @FXML
     private TextField txtField;
     @FXML
@@ -31,8 +30,6 @@ public class WeatherView {
     private Label errorMessage;
     @FXML
     private BorderPane moBackground, tueBackground, wedBackground, thuBackground, friBackground, satBackground, sunBackground;
-    @FXML
-    private ProgressBar loading;
 
     public Button getSearchButton(){
         return searchButton;
@@ -107,10 +104,6 @@ public class WeatherView {
                 this.sunBackground.getStyleClass().setAll("current-day");
                 break;
         }
-    }
-
-    public ProgressBar getLoading(){
-        return this.loading;
     }
 }
 

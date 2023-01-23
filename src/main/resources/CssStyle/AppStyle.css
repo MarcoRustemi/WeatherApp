@@ -87,8 +87,7 @@
     -fx-alignment: center;
     -fx-translate-y: -16;
     -fx-wrap-text: true;
-    /*-fx-alignment: center ;*/
-    /*-fx-text-alignment: center;*/
+
 
 }
 
@@ -125,5 +124,4 @@
 .imagesWeather{
     -fx-pref-height: 64;
     -fx-pref-width: 64;
-    /*-fx-alignment: center;*/
 }

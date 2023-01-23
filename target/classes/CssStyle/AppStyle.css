@@ -1,26 +1,43 @@
-.root {
+#root {
     -fx-background-image: url("../Images/Hintergrund.jpg");
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center center;
-
 }
 
+#yearDay{
+    -fx-translate-x: 541;
+    -fx-translate-y: 736;
+    -fx-text-fill: white;
+    -fx-font-family: "Berlin Sans FB Demi Bold";
+    -fx-font-size: 24px;
+}
+
+#currentCity{
+    -fx-translate-x: 568;
+    -fx-translate-y: 373;
+    -fx-text-fill: "#eff542";
+    -fx-font-family: "Berlin Sans FB Demi Bold";
+    -fx-font-size: 24px;
+}
+
+
+
 .current-day{
-    -fx-background-color: lightgreen;
+    -fx-pref-height: 234.0;
+    -fx-pref-width: 156.0;
+    -fx-translate-y: 469;
+    -fx-background-color: "f6e3bd";
     -fx-background-radius: 11px;
 }
 
 .white-background {
-    -fx-background-color: #FFFF;
+    -fx-pref-height: 234.0;
+    -fx-pref-width: 156.0;
+    -fx-translate-y: 469;
+    -fx-background-color: "FFFFFF";
     -fx-background-radius: 11px;
 }
-
-/*#body-bg {
-    -fx-background-repeat: stretch;
-    -fx-background-position: center center;
-    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
-}*/
 
 #searchbar{
     -fx-translate-x: 526;
@@ -40,11 +57,13 @@
 .custom-bold {
     font-weight: bold;
 }
+
 .hover-box:hover {
     cursor: pointer;
 }
+
 #button-style{
-    -fx-background-color: #eff542;
+    -fx-background-color: "#eff542";
     -fx-cursor: hand;
     -fx-padding: 1px;
     -fx-pref-height: 25;
@@ -52,20 +71,57 @@
     -fx-text-fill: black;
     -fx-translate-x: 691;
     -fx-translate-y: 388;
+    -fx-font-family: "Berlin Sans FB Demi Bold";
+    -fx-font-size: 16px;
 }
-#city-text-style{
-    -fx-translate-x: 486;
-    -fx-translate-y: 405;
-    -fx-fill:white ;
-    -fx-font-weight: bold;
-}
+
 #test{
     -fx-translate-x: 556;
     -fx-translate-y: 512;
     -fx-fill:white ;
     -fx-font-weight: bold;
 }
-.Label{
+
+.status{
     -fx-font-weight: bold;
     -fx-alignment: center;
+    -fx-translate-y: -16;
+    -fx-wrap-text: true;
+
+
+}
+
+.temp{
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-font-size: 23px;
+}
+
+.dayFont{
+    -fx-fill: white;
+    -fx-font-family: "Berlin Sans FB Demi Bold";
+    -fx-font-size: 20px;
+    -fx-translate-y: 451;
+}
+
+#cityText{
+    -fx-translate-x: 486;
+    -fx-translate-y: 405;
+    -fx-fill: white ;
+    -fx-font-weight: bold;
+    -fx-font-family: "Berlin Sans FB Demi Bold";
+    -fx-font-size: 21px;
+}
+
+.errorMessage1{
+    -fx-font-family: "Berlin Sans FB Demi Bold";
+    -fx-font-size: 24px;
+    -fx-translate-x: 770;
+    -fx-translate-y: 319.0;
+    -fx-text-fill: "#eb2525";
+}
+
+.imagesWeather{
+    -fx-pref-height: 64;
+    -fx-pref-width: 64;
 }

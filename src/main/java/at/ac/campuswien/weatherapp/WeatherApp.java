@@ -71,7 +71,6 @@ public class WeatherApp extends Application {
             setView(err.getErrorMessage());
         }else {
             this.setView();
-            this.view.getLoading().setVisible(false);
         }
     }
 

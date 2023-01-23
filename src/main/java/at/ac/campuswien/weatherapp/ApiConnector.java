@@ -35,12 +35,8 @@ public class ApiConnector {
         out.flush();
         out.close();
 
-        // con.setConnectTimeout(5000);
-        //con.setReadTimeout(5000);
-
         int status = con.getResponseCode();
 
-        Reader streamReader = null;
 
         if(status > 299){
             BufferedReader input = new BufferedReader(
@@ -75,8 +71,6 @@ public class ApiConnector {
             }
 
             con.disconnect();
-            //System.out.println("Content: " + content3.get(2).toString());
-
             return new ApiResponse<>(Boolean.TRUE, content3);
         }
 
