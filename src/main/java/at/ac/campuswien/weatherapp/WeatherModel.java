@@ -14,7 +14,7 @@ public class WeatherModel {
     private HashMap<Day, Double> temperature;
     private HashMap<Day, String> state;
     private HashMap<String, String> params;
-    final String key = "265aa588f98045e7933132318231001";
+    final String key = "637083e951f54565be6152353232401";
     private String city;
     private String currDate;
 
